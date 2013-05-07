@@ -115,9 +115,9 @@ Gitlab::Application.routes.draw do
   end
 
   resources :keys
+  match "/u/new" => "users#new", as: :new_user, via: :get
+  match "/u/new" => "users#create", via: :post
   match "/u/:username" => "users#show", as: :user, constraints: { username: /.*/ }
-
-
 
   #
   # Dashboard Area

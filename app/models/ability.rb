@@ -17,6 +17,7 @@ class Ability
 
     def global_abilities(user)
       rules = []
+      rules << :create_user if user.can_create_user
       rules << :create_group if user.can_create_group
       rules << :create_team if user.can_create_team
       rules

@@ -1,0 +1,45 @@
+%h3.page_title
+  %i.icon-plus
+  New user
+%hr
+  .user_new
+    = form_for :user do |f|
+      -if @admin_user.errors.any?
+        #error_explanation
+          %ul.unstyled.alert.alert-error
+            - @admin_user.errors.full_messages.each do |msg|
+              %li= msg
+
+      %fieldset
+        %legend Account
+        .clearfix
+          = f.label :name
+          .input
+            = f.text_field :name, required: true, autocomplete: "off"
+            %span.help-inline * required
+        .clearfix
+          = f.label :username
+          .input
+            = f.text_field :username, required: true, autocomplete: "off"
+            %span.help-inline * required
+        .clearfix
+          = f.label :email
+          .input
+            = f.text_field :email, required: true, autocomplete: "off"
+            %span.help-inline * required
+
+      %fieldset
+        %legend Profile
+        .clearfix
+          = f.label :skype
+          .input= f.text_field :skype
+        .clearfix
+          = f.label :linkedin
+          .input= f.text_field :linkedin
+        .clearfix
+          = f.label :twitter
+          .input= f.text_field :twitter
+
+      .actions
+        = f.submit 'Create user', class: "btn btn-create"
+        = link_to 'Cancel', admin_users_path, class: "btn btn-cancel"

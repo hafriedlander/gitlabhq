@@ -47,6 +47,10 @@
             .input= f.number_field :projects_limit
 
           .clearfix
+            = f.label :can_create_user
+            .input= f.check_box :can_create_user
+
+          .clearfix
             = f.label :can_create_group
             .input= f.check_box :can_create_group
 

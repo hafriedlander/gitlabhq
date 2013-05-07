@@ -61,6 +61,12 @@
               %p
                 You can login through #{@user.provider.titleize}!
                 = link_to "click here to change", account_profile_path
+          - if current_user.can_create_user?
+            %li
+              %p
+                Invite a new user to participate
+                = link_to new_user_path, class: "btn btn-tiny" do
+                  Create a new user
           - if current_user.can_create_group?
             %li
               %p

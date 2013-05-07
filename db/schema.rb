@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130506095501) do
+ActiveRecord::Schema.define(:version => 20130507121200) do
 
   create_table "deploy_keys_projects", :force => true do |t|
     t.integer  "deploy_key_id", :null => false
@@ -288,6 +288,7 @@ ActiveRecord::Schema.define(:version => 20130506095501) do
     t.string   "state"
     t.integer  "color_scheme_id",        :default => 1,     :null => false
     t.integer  "notification_level",     :default => 1,     :null => false
+    t.boolean  "can_create_user",        :default => false, :null => false
   end
 
   add_index "users", ["admin"], :name => "index_users_on_admin"
